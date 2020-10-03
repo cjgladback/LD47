@@ -8,11 +8,10 @@ VAR clean = false
 VAR loupe = false
 VAR loopcount = 0
 
--> start_loop
+->start_loop
 === start_loop ===
-The lights are flickering again. #manager
-{boardroom: You okay?|} #manager
-+ [{Weird.|Huh.|Nothing I can do about it.}]->intro01
+The lights are flickering again. {boardroom: You okay?} #manager
++ [Oh. {Weird.|Huh.|Nothing I can do about it.}]->intro01
 === intro01 ===
 Oh, right; you have to get up to that meeting with Monica. We'll check into the lights without you. #manager
 + Thanks. ->intro02
