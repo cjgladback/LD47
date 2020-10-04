@@ -316,14 +316,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/CJ/Documents/GitHub/LD47 to hold the overlarge wallpaper/LD47/LD 47 Unity Project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

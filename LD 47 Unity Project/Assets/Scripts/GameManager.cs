@@ -51,9 +51,9 @@ public class GameManager : MonoBehaviour
         List<string> tags = story.currentTags;
 
         // If there are tags, search for lighting and location instructions.
-        if (tags.Count > 0)
+        /*if (tags.Count > 0)
         {
-            /*if (tags.Contains("lit"))
+            *//*if (tags.Contains("lit"))
             {
 
                 brightness = lt.intensity;
@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
                     //lt.intensity = DOTween.brightness;
                 }
 
-            }*/
-        }
+            }*//*
+        }*/
 
         // Display all the choices, if there are any!
         if (story.currentChoices.Count > 0)
@@ -118,8 +118,7 @@ public class GameManager : MonoBehaviour
     // Creates a textbox showing the line of text
     void CreateContentView(string text, Image backer)
     {
-        /*Image storyBacker = Instantiate(panelPrefab) as Image;
-        storyBacker.transform.SetParent(canvas.transform, false);*/
+        // Creates paragraph from the TextMesh prefab and sets parent to the panel prefab instance
         TextMeshProUGUI storyText = Instantiate(textPrefab) as TextMeshProUGUI;
         storyText.text = text;
         storyText.transform.SetParent(backer.transform, false);
@@ -128,17 +127,13 @@ public class GameManager : MonoBehaviour
     // Creates a button showing the choice text
     Button CreateChoiceView(string text, Image backer)
     {
-        // Creates the button from a prefab
+        // Creates the button from a prefab and sets parent to the panel prefab instance
         Button choice = Instantiate(buttonPrefab) as Button;
         choice.transform.SetParent(backer.transform, false);
 
         // Gets the text from the button prefab
         TextMeshProUGUI choiceText = choice.GetComponentInChildren<TextMeshProUGUI>();
         choiceText.text = text;
-
-        // Make the button expand to fit the text
-        /*HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
-        layoutGroup.childForceExpandHeight = false;*/
 
         return choice;
     }
