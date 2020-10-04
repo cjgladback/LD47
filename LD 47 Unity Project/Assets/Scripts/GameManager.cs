@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
                 else if(tags.Contains("sfx")){
                     voice = "sfx";
                 }
+                else if (tags.Contains("loud"))
+                {
+                    voice = "loud";
+                }
             }
 
             // Display the text on screen!
@@ -171,8 +175,11 @@ public class GameManager : MonoBehaviour
             if (voice == "chat")
             {
                 x = chatPrefab;
-            } else {
+            } else if (voice == "sfx"){
                 x = sfxPrefab;
+            } else
+            {
+                x = loudPrefab;
             }
         } else {
             x = textPrefab;
@@ -222,6 +229,9 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI chatPrefab;
     [SerializeField]
     private TextMeshProUGUI sfxPrefab;
+    [SerializeField]
+    private TextMeshProUGUI loudPrefab;
+
     [SerializeField]
     private Button buttonPrefab;
     [SerializeField]
