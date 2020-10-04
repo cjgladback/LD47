@@ -9,13 +9,13 @@ To-Do:
 - ~~Get Unity TextMeshPro instantiation to work with Ink file~~
 - ~~Differentiate voice in chat vs in person~~
 - Convert font for SFX voice
-- Write story
-   Dare's branch
-   Brad's branch
-   Whitney's branch
-   Solo branch
-   Escapes
-   Solutions
+- Write story  
+   Dare's branch  
+   Brad's branch  
+   Whitney's branch  
+   Solo branch  
+   Escapes  
+   Solutions  
 - Incorporate images for characters
 - Images for backgrounds/settings
 - Music/sound effects
