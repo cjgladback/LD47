@@ -10,15 +10,15 @@ VAR loopcount = 0
 
 ->start_loop
 === start_loop ===
-The lights are flickering again. {boardroom: You okay?} #manager
-+ [Oh. {Weird.|Huh.|Nothing I can do about it.}]->intro01
+The lights are flickering again. #manager
++ [{Weird.|Huh.|Nothing I can do about it.}]->intro01
 === intro01 ===
-Oh, right; you have to get up to that meeting with Monica. We'll check into the lights without you. #manager
+{boardroom: You okay?} {loopcount >= 2: You look a little pale.} Oh, right; you have to get up to that meeting with Monica. We'll check into the lights without you. #manager
 + Thanks. ->intro02
 = intro02
 Just a sec and I'll be on my way.
 Alright, but be quick. Gotta represent the punctuality of Maintenance. #manager
-+ [Remind Daré in Untangling]->introDare
++ [Remind Dare in Untangling]->introDare
 + [Remind Brad in Janitorial]->introBrad
 + [Remind Whitney in Resources]->introWhitney
 + [Hurry on your way]->boardroom
@@ -61,19 +61,19 @@ Oh my goodness. Ms. Loop! Is that a pen? ->interrogation
 What the heck?! Where did those tweezers come from? Ms. Loop? Ms. Loop?? ->interrogation
 = interrogation
 Oh no. Poor Ms. Loop.
-+ {chosen == "dare"}[Talk to Daré]->boardroom_dare
++ {chosen == "dare"}[Talk to Dare]->boardroom_dare
 + {chosen == "brad"}[Talk to Brad]->boardroom_brad
 + {chosen == "whitney"}[Talk to Whitney]->boardroom_whitney
 + [...]->boardroom_reset
 = boardroom_dare
 Sure nuff. #dare
-->boardroom_reset
++ [...]->boardroom_reset
 = boardroom_brad
 Indeed. #brad
-->boardroom_reset
++ [...]->boardroom_reset
 = boardroom_whitney
 Wow. #whitney
-->boardroom_reset
++ [...]->boardroom_reset
 = boardroom_reset
 ~ chosen = ""
 ~ loopcount ++
@@ -81,7 +81,7 @@ Wow. #whitney
 
 === focusgroup ===
 I'm so glad we could have this talk. #msloop
-->boardroom.boardroom_reset
++ [...]->boardroom.boardroom_reset
 
 === finish ===
 \ 

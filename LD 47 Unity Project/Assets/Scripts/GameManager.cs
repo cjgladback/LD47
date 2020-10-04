@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
         Image storyBacker = Instantiate(panelPrefab) as Image;
         storyBacker.transform.SetParent(canvas.transform, false);
 
+        
+
         // Read all the content until we can't continue any more
         while (story.canContinue)
         {
@@ -43,12 +45,56 @@ public class GameManager : MonoBehaviour
             string text = story.Continue();
             // This removes any white space from the text.
             text = text.Trim();
+
+            //declaring and clearing the voice to hand through to CreateContentView()
+            string voice = "";
+
+            //check current tags for chat or sfx tags to alter voice
+            List<string> tags = story.currentTags;
+            if (tags.Count > 0)
+            {
+                if (tags.Contains("chat"))
+                {
+                    voice = "chat";
+                }
+                else if(tags.Contains("sfx")){
+                    voice = "sfx";
+                }
+            }
+
             // Display the text on screen!
-            CreateContentView(text, storyBacker);
+            CreateContentView(text, voice, storyBacker);
         }
 
-        // Get the current tags (if any)
-        List<string> tags = story.currentTags;
+        // Finding tags has to happen after the story progresses and only looks at the most recent line.
+        /*List<string> tags = story.currentTags;
+        if (tags.Count > 0)
+        {
+            if (tags.Contains("chat"))
+            {
+                Debug.Log("This is a chat message.");
+            }
+            if (tags.Contains("manager"))
+            {
+                Debug.Log("The manager is speaking.");
+            }
+            if (tags.Contains("dare"))
+            {
+                Debug.Log("Daré is speaking.");
+            }
+            if (tags.Contains("brad"))
+            {
+                Debug.Log("Brad is speaking.");
+            }
+            if (tags.Contains("whitney"))
+            {
+                Debug.Log("Whitney is speaking.");
+            }
+            if (tags.Contains("msloop"))
+            {
+                Debug.Log("Ms. Loop is speaking.");
+            }
+        }*/
 
         // If there are tags, search for lighting and location instructions.
         /*if (tags.Count > 0)
@@ -116,10 +162,24 @@ public class GameManager : MonoBehaviour
     }
 
     // Creates a textbox showing the line of text
-    void CreateContentView(string text, Image backer)
+    void CreateContentView(string text, string voice, Image backer)
     {
+        TextMeshProUGUI x;
+        
+        if (voice != "")
+        {
+            if (voice == "chat")
+            {
+                x = chatPrefab;
+            } else {
+                x = sfxPrefab;
+            }
+        } else {
+            x = textPrefab;
+        }
+        
         // Creates paragraph from the TextMesh prefab and sets parent to the panel prefab instance
-        TextMeshProUGUI storyText = Instantiate(textPrefab) as TextMeshProUGUI;
+        TextMeshProUGUI storyText = Instantiate(x) as TextMeshProUGUI;
         storyText.text = text;
         storyText.transform.SetParent(backer.transform, false);
     }
@@ -158,6 +218,10 @@ public class GameManager : MonoBehaviour
     // UI Prefabs
     [SerializeField]
     private TextMeshProUGUI textPrefab;
+    [SerializeField]
+    private TextMeshProUGUI chatPrefab;
+    [SerializeField]
+    private TextMeshProUGUI sfxPrefab;
     [SerializeField]
     private Button buttonPrefab;
     [SerializeField]
