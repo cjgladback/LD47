@@ -65,7 +65,7 @@ Yeah, not a clue what the meeting's about. But thanks for the reminder! See you 
             ~ present += whitney
 }
 Everyone seems to be waiting for {something|Ms. Loop to arrive}. Everyone including you.{| It's eerily quiet}
-+ [Talk to {known ? shawndraName: Shawndra|your neighbor}]
++ [Talk to {known ? shawndraName:Shawndra|your neighbor}]
   ~ known += shawndraName
   -- "Good morning! Yes, I'm Shawndra. Human Resources, but I don't bite. Does Maintenance know what this meeting's about?" #shawndra
   ++ ["I was hoping you did."]

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     //public Node startingNode;
 
     public static event Action<Story> OnCreateStory;
+    private List<GameObject> spawnedCharacters;
 
 
     void Start()
@@ -68,6 +69,80 @@ public class GameManager : MonoBehaviour
 
             // Display the text on screen!
             CreateContentView(text, voice, storyBacker);
+        }
+        
+        //discover the location tags
+        var currentLocation = story.variablesState["location"] as Ink.Runtime.InkList;
+        if (currentLocation.ContainsItemNamed("office"))
+        {
+            Debug.Log("We're in the office.");
+            background.GetComponent<SpriteRenderer>().sprite = officeSprite;
+        } else if (currentLocation.ContainsItemNamed("meeting"))
+        {
+            Debug.Log("We're in the boardroom.");
+            background.GetComponent<SpriteRenderer>().sprite = boardroomSprite;
+        } else if (currentLocation.ContainsItemNamed("crimescene"))
+        {
+            Debug.Log("We're at a crimescene.");
+            background.GetComponent<SpriteRenderer>().sprite = boardroomSprite;
+        }
+
+        //TO-DO clear previously created characters
+        int spawned = standBack.transform.childCount;
+        for (int i = spawned - 1; i >= 0; --i)
+        {
+            GameObject.Destroy(standBack.transform.GetChild(i).gameObject);
+        }
+
+        //run forloop through present characters to determine their number and therefore placement?
+        var inSight = story.variablesState["present"] as Ink.Runtime.InkList;
+        //Debug.Log(inSight.maxItem.Value + " should be the number.");
+        //Ink lists start at 1, unlike arrays
+        foreach (var item in inSight)
+        {
+            string name = $"{item.Key}";
+            name = name.Replace("present.", "");
+            Debug.Log(name);
+
+            GameObject character = Instantiate(characterPrefab);
+            character.transform.SetParent(standBack.transform, false);
+            
+            //spent about 4 hours reading through all sorts of documentation and answers failing to find
+            //the right way to use a string to find an object/prefab/what have ye to use
+            if (name == "manager")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = manager;
+            } else if (name == "msloop")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = msloop;
+            } else if (name == "dare")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = dare;
+            } else if (name == "brad")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = brad;
+            } else if (name == "whitney")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = whitney;
+            } else if (name == "julie")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = julie;
+            } else if (name == "shawndra")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = shawndra;
+            } else if (name == "stephen")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = stephen;
+            } else if (name == "river")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = river;
+            } else if (name == "security")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = security;
+            } else if (name == "cops")
+            {
+                character.GetComponent<SpriteRenderer>().sprite = cops;
+            }
         }
 
         // Finding tags has to happen after the story progresses and only looks at the most recent line.
@@ -236,4 +311,44 @@ public class GameManager : MonoBehaviour
     private Button buttonPrefab;
     [SerializeField]
     private Image panelPrefab;
+
+    // Sprites
+    [SerializeField]
+    private GameObject background;
+    [SerializeField]
+    private Sprite officeSprite;
+    [SerializeField]
+    private Sprite boardroomSprite;
+    [SerializeField]
+    private GameObject characterPrefab;
+
+    // Placement empties
+    [SerializeField]
+    private GameObject standBack;
+    [SerializeField]
+    private GameObject speaking;
+
+    // All character sprites
+    [SerializeField]
+    private Sprite manager;
+    [SerializeField]
+    private Sprite msloop;
+    [SerializeField]
+    private Sprite dare;
+    [SerializeField]
+    private Sprite brad;
+    [SerializeField]
+    private Sprite whitney;
+    [SerializeField]
+    private Sprite julie;
+    [SerializeField]
+    private Sprite shawndra;
+    [SerializeField]
+    private Sprite stephen;
+    [SerializeField]
+    private Sprite river;
+    [SerializeField]
+    private Sprite security;
+    [SerializeField]
+    private Sprite cops;
 }
