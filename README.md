@@ -17,8 +17,11 @@ To-Do:
    Solo branch  
    Escapes  
    Solutions  
-- Incorporate images for characters
-- Images for backgrounds/settings
+- Make images for characters
+- Make for backgrounds/settings
+- Set up background image to change with location
+- Display array of characters in a location (using Ink LIST of characters, and LIST of states (absent, background, emotions?) with variables for each character?)
+- Bring speaking character forward (need two y? coordinates to switch between; might be z coordinates in Unity)
 - Music/sound effects
 - Menu for volume
 - OpenDyslexic font sub-ins on menu?
