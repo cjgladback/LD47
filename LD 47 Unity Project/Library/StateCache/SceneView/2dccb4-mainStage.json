@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false},"in2DMode":false,"pivot":{"x":38.96427917480469,"y":12.33507251739502,"z":37.39613342285156},"rotation":{"x":-0.016319841146469117,"y":0.14704732596874238,"z":0.0024264506064355375,"w":0.9889976382255554},"size":119.46251678466797,"orthographic":false}
+=======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false},"in2DMode":false,"pivot":{"x":497.1356201171875,"y":-123.09513854980469,"z":470.2025451660156},"rotation":{"x":0.08073553442955017,"y":0.4053492546081543,"z":-0.03596757724881172,"w":0.9098830223083496},"size":1157.8914794921875,"orthographic":false}
+>>>>>>> parent of 9dee05e... Submitted!
